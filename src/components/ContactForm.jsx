@@ -67,7 +67,7 @@ export default function ContactForm() {
         </div>
       </div>
 
-            <div>
+          <div>
         <label className="block text-sm font-medium mb-2">Servicio de interés</label>
         <select
           name="service"
@@ -79,6 +79,7 @@ export default function ContactForm() {
           <option value="todos" className="bg-[#18181b]">Todos los servicios</option>
         </select>
       </div>
+
       <div>
         <label className="block text-sm font-medium mb-2">Mensaje</label>
         <textarea
