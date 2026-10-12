@@ -4,6 +4,7 @@ import ProcessStep from '@/components/ProcessStep';
 import Counter from '@/components/Counter';
 import ContactForm from '@/components/ContactForm';
 import TestimonialCard from '@/components/TestimonialCard';
+import MatrixRain from '@/components/MatrixRain';
 export default function Home() {
   const services = [
     {
@@ -29,7 +30,22 @@ export default function Home() {
       <section 
         id="inicio" 
         className="min-h-screen flex items-center justify-center text-center px-[5%] md:px-[10%] relative pt-20 overflow-hidden"
+      >      {/* SECCIÓN HERO */}
+      <section 
+        id="inicio" 
+        className="min-h-screen flex items-center justify-center text-center px-[5%] md:px-[10%] relative pt-20 overflow-hidden"
       >
+        {/*  EFECTO MATRIX DE FONDO */}
+        <MatrixRain color="#00f0ff" density={0.975} speed={35} />
+        
+        {/* Resplandor Púrpura (Fijo) */}
+        <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-brand-purple/20 rounded-full blur-[120px] -z-10" />
+        
+        {/* Resplandor Cian (Animado) */}
+        <div className="absolute bottom-[10%] right-0 w-[400px] h-[400px] bg-brand-cyan/10 rounded-full blur-[100px] -z-10 animate-pulse" />
+
+        <div className="max-w-4xl relative z-10">
+          {/* ... resto del contenido del Hero ... */}
         {/* Resplandor Púrpura (Fijo) */}
         <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-brand-purple/20 rounded-full blur-[120px] -z-10" />
         
