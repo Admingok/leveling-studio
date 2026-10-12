@@ -1,10 +1,11 @@
 import ServiceCard from '@/components/ServiceCard';
 import FadeIn from '@/components/FadeIn';
-import ProcessStep from '@/components/ProcessStep';
 import Counter from '@/components/Counter';
-import ContactForm from '@/components/ContactForm';
+import ProcessStep from '@/components/ProcessStep';
 import TestimonialCard from '@/components/TestimonialCard';
+import ContactForm from '@/components/ContactForm';
 import MatrixRain from '@/components/MatrixRain';
+
 export default function Home() {
   const services = [
     {
@@ -26,26 +27,14 @@ export default function Home() {
 
   return (
     <>
-           {/* SECCIÓN HERO */}
-      <section 
-        id="inicio" 
-        className="min-h-screen flex items-center justify-center text-center px-[5%] md:px-[10%] relative pt-20 overflow-hidden"
-      >      {/* SECCIÓN HERO */}
+      {/* SECCIÓN HERO */}
       <section 
         id="inicio" 
         className="min-h-screen flex items-center justify-center text-center px-[5%] md:px-[10%] relative pt-20 overflow-hidden"
       >
-        {/*  EFECTO MATRIX DE FONDO */}
+        {/* EFECTO MATRIX DE FONDO */}
         <MatrixRain color="#00f0ff" density={0.975} speed={35} />
         
-        {/* Resplandor Púrpura (Fijo) */}
-        <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-brand-purple/20 rounded-full blur-[120px] -z-10" />
-        
-        {/* Resplandor Cian (Animado) */}
-        <div className="absolute bottom-[10%] right-0 w-[400px] h-[400px] bg-brand-cyan/10 rounded-full blur-[100px] -z-10 animate-pulse" />
-
-        <div className="max-w-4xl relative z-10">
-          {/* ... resto del contenido del Hero ... */}
         {/* Resplandor Púrpura (Fijo) */}
         <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-brand-purple/20 rounded-full blur-[120px] -z-10" />
         
@@ -85,7 +74,7 @@ export default function Home() {
       </section>
 
       {/* SECCIÓN DE SERVICIOS */}
-      <section id="servicios" className="py-24 px-[10%]">
+      <section id="servicios" className="py-24 px-[5%] md:px-[10%]">
         <FadeIn>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
@@ -97,7 +86,7 @@ export default function Home() {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <ServiceCard
               key={index}
@@ -109,7 +98,8 @@ export default function Home() {
           ))}
         </div>
       </section>
-            {/* SECCIÓN DE ESTADÍSTICAS */}
+
+      {/* SECCIÓN DE ESTADÍSTICAS */}
       <section className="py-20 px-[5%] md:px-[10%] bg-gradient-to-b from-transparent via-brand-purple/5 to-transparent border-y border-white/5">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
@@ -130,6 +120,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       {/* SECCIÓN NUESTRO PROCESO */}
       <section id="proceso" className="py-24 px-[5%] md:px-[10%]">
         <FadeIn>
@@ -146,7 +137,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <ProcessStep
             number="01"
-            icon=""
+            icon="🔍"
             title="Descubrimiento"
             description="Analizamos tu negocio, tu mercado y tus objetivos para crear una estrategia a medida."
             delay={0}
@@ -174,8 +165,9 @@ export default function Home() {
           />
         </div>
       </section>
+
       {/* SECCIÓN DE PORTAFOLIO */}
-      <section id="portafolio" className="py-24 px-[10%]">
+      <section id="portafolio" className="py-24 px-[5%] md:px-[10%]">
         <FadeIn>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
@@ -187,7 +179,7 @@ export default function Home() {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             { title: 'Campaña de Lanzamiento', video: 'Video de Proyecto 1' },
             { title: 'Desarrollo E-commerce', video: 'Video de Proyecto 2' },
@@ -204,6 +196,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+
       {/* SECCIÓN TESTIMONIOS */}
       <section className="py-24 px-[5%] md:px-[10%]">
         <FadeIn>
@@ -241,8 +234,8 @@ export default function Home() {
           />
         </div>
       </section>
-      {/* FOOTER */}
-            {/* FOOTER CON FORMULARIO */}
+
+      {/* FOOTER CON FORMULARIO */}
       <footer id="contacto" className="py-24 px-[5%] md:px-[10%] border-t border-white/10">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
