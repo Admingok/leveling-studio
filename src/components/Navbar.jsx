@@ -11,9 +11,9 @@ export default function Navbar() {
     { label: 'Inicio', href: '/#inicio' },
     { label: 'Servicios', href: '/#servicios' },
     { label: 'Proyectos', href: '/proyectos' },
+    { label: 'Blog', href: '/blog' },
     { label: 'Precios', href: '/precios' },
     { label: 'Proceso', href: '/#proceso' },
-    { label: 'Portafolio', href: '/#portafolio' },
   ];
 
   return (
@@ -24,7 +24,7 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden md:block">
-          <ul className="flex gap-6 items-center">
+          <ul className="flex gap-5 items-center">
             {links.map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="text-brand-muted hover:text-white transition text-sm">
@@ -33,10 +33,7 @@ export default function Navbar() {
               </li>
             ))}
             <li>
-              <Link
-                href="/#contacto"
-                className="bg-gradient-to-r from-brand-cyan to-brand-purple text-black px-6 py-2.5 rounded-full font-semibold hover:scale-105 transition text-sm"
-              >
+              <Link href="/#contacto" className="bg-gradient-to-r from-brand-cyan to-brand-purple text-black px-6 py-2.5 rounded-full font-semibold hover:scale-105 transition text-sm">
                 Contactar
               </Link>
             </li>
@@ -63,23 +60,14 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'tween', duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-brand-dark/95 backdrop-blur-xl flex flex-col items-center justify-center gap-6 md:hidden"
+            className="fixed inset-0 z-40 bg-brand-dark/95 backdrop-blur-xl flex flex-col items-center justify-center gap-5 md:hidden"
           >
             {links.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={() => setIsOpen(false)}
-                className="text-2xl font-bold text-white hover:text-brand-cyan transition"
-              >
+              <Link key={l.href} href={l.href} onClick={() => setIsOpen(false)} className="text-2xl font-bold text-white hover:text-brand-cyan transition">
                 {l.label}
               </Link>
             ))}
-            <Link
-              href="/#contacto"
-              onClick={() => setIsOpen(false)}
-              className="bg-gradient-to-r from-brand-cyan to-brand-purple text-black px-8 py-4 rounded-full font-bold text-lg mt-2"
-            >
+            <Link href="/#contacto" onClick={() => setIsOpen(false)} className="bg-gradient-to-r from-brand-cyan to-brand-purple text-black px-8 py-4 rounded-full font-bold text-lg mt-2">
               Contactar
             </Link>
           </motion.div>
