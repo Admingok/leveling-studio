@@ -11,7 +11,7 @@ export const projects = [
     client: 'Raíz Café',
     category: 'Publicidad Digital',
     tagline: 'De 0 a 1,200 pedidos en 6 semanas con Meta Ads + landing de conversión.',
-    image: '', // ← pon '/proyectos/raiz-cafe.jpg' cuando subas la foto
+    image: '/proyectos/raiz-cafe.jpg', // ← pon '/proyectos/raiz-cafe.jpg' cuando subas la foto
     coverGradient: 'from-brand-cyan to-brand-purple',
     summary:
       'Raíz Café abría su primera sucursal física y necesitaba demanda inmediata. Diseñamos una landing de alta conversión y una campaña de Meta Ads segmentada por radio geográfico para llenar la cafetería desde el día 1.',
@@ -33,7 +33,7 @@ export const projects = [
     client: 'Lumen Skin',
     category: 'Desarrollo Web',
     tagline: 'Tienda online a medida que triplicó la conversión móvil en 90 días.',
-    image: '', // ← pon '/proyectos/lumen-skin.jpg' cuando subas la foto
+    image: '/proyectos/lumen-skin.jpg', // ← pon '/proyectos/lumen-skin.jpg' cuando subas la foto
     coverGradient: 'from-brand-purple to-brand-cyan',
     summary:
       'Lumen Skin vendía por Instagram y perdía ventas por la fricción de los DMs. Construimos un e-commerce completo con checkout optimizado para móvil, integrando inventario, pagos y envío.',
@@ -55,7 +55,7 @@ export const projects = [
     client: 'Derma Belle',
     category: 'Marketing Estratégico',
     tagline: 'De 800 a 24,000 seguidores y agenda llena con contenido educativo.',
-    image: '', // ← pon '/proyectos/derma-belle.jpg' cuando subas la foto
+    image: '/proyectos/derma-belle.jpg', // ← pon '/proyectos/derma-belle.jpg' cuando subas la foto
     coverGradient: 'from-brand-cyan to-brand-purple',
     summary:
       'Derma Belle tenía autoridad médica pero cero presencia digital. Creamos un sistema de contenido en Reels que educaba, generaba confianza y convertía seguidores en citas pagadas.',
