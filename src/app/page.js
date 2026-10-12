@@ -6,6 +6,7 @@ import TestimonialCard from '@/components/TestimonialCard';
 import ContactForm from '@/components/ContactForm';
 import MatrixRain from '@/components/MatrixRain';
 import Link from 'next/link';
+import Image from 'next/image'; // ⬅️ NUEVO: componente optimizado de Next
 import { projects } from '@/data/projects';
 
 export default function Home() {
@@ -27,14 +28,13 @@ export default function Home() {
     }
   ];
 
-  // Tomamos los primeros 3 casos de estudio reales como preview en el home
   const featuredProjects = projects.slice(0, 3);
 
   return (
     <>
       {/* SECCIÓN HERO */}
-      <section 
-        id="inicio" 
+      <section
+        id="inicio"
         className="min-h-screen flex items-center justify-center text-center px-[5%] md:px-[10%] relative pt-20 overflow-hidden"
       >
         <MatrixRain color="#00f0ff" density={0.975} speed={35} />
@@ -108,7 +108,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECCIÓN DE PORTAFOLIO — CONECTADA A LOS CASOS REALES */}
+      {/* SECCIÓN DE PORTAFOLIO — CON IMAGEN REAL + FALLBACK GRADIENTE */}
       <section id="portafolio" className="py-24 px-[5%] md:px-[10%]">
         <FadeIn>
           <div className="text-center mb-16">
@@ -122,16 +122,26 @@ export default function Home() {
             <FadeIn key={p.slug} delay={index * 0.15}>
               <Link href={`/proyectos/${p.slug}`} className="block group h-full">
                 <article className="bg-brand-card border border-white/10 rounded-2xl overflow-hidden h-full flex flex-col transition-all duration-300 group-hover:border-brand-cyan/50 group-hover:-translate-y-2">
-                  {/* Cover con gradiente + badge de categoría */}
-                  <div className={`h-52 bg-gradient-to-br ${p.coverGradient} relative flex items-end p-5`}>
-                    <span className="absolute top-4 right-4 text-xs font-bold uppercase tracking-wide bg-black/30 backdrop-blur-sm text-white px-3 py-1 rounded-full">
+                  {/* COVER: gradiente de fondo + imagen encima si existe */}
+                  <div className={`h-52 bg-gradient-to-br ${p.coverGradient} relative flex items-end p-5 overflow-hidden`}>
+                    {p.image && (
+                      <Image
+                        src={p.image}
+                        alt={`Caso de estudio: ${p.client}`}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                    )}
+                    {/* Capa oscura para que el texto blanco se lea sobre la foto */}
+                    {p.image && <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />}
+                    <span className="absolute top-4 right-4 z-10 text-xs font-bold uppercase tracking-wide bg-black/40 backdrop-blur-sm text-white px-3 py-1 rounded-full">
                       {p.category}
                     </span>
-                    <h3 className="text-xl font-extrabold text-black drop-shadow-sm">{p.client}</h3>
+                    <h3 className="relative z-10 text-xl font-extrabold text-white drop-shadow-md">{p.client}</h3>
                   </div>
                   <div className="p-6 flex flex-col flex-1">
                     <p className="text-brand-muted text-sm mb-4 flex-1">{p.tagline}</p>
-                    {/* Mini-resultados como prueba social rápida */}
                     <div className="flex gap-4 mb-5">
                       {p.results.slice(0, 2).map((r, i) => (
                         <div key={i}>

@@ -1,22 +1,19 @@
 import Link from 'next/link';
+import Image from 'next/image'; // ⬅️ NUEVO
 import { notFound } from 'next/navigation';
 import FadeIn from '@/components/FadeIn';
 import { projects, getProjectBySlug } from '@/data/projects';
 
-// 1) NEXT.JS 15/16: generateStaticParams pre-renderiza cada slug en build time
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
-// 2) SEO por página: title/description únicos para cada caso de estudio
 export async function generateMetadata({ params }) {
-  const { slug } = await params; // ⚠️ params es async en Next 16
+  const { slug } = await params;
   const project = getProjectBySlug(slug);
-
   if (!project) {
     return { title: 'Proyecto no encontrado | Leveling Studio' };
   }
-
   return {
     title: `${project.title} | Leveling Studio`,
     description: project.summary,
@@ -29,15 +26,13 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ProyectoPage({ params }) {
-  const { slug } = await params; // ⚠️ también async aquí
+  const { slug } = await params;
   const project = getProjectBySlug(slug);
 
-  // Si el slug no existe en nuestros datos → página 404 nativa
   if (!project) {
     notFound();
   }
 
-  // Proyecto "siguiente" para navegación interna (SEO + retención)
   const currentIndex = projects.findIndex((p) => p.slug === slug);
   const nextProject = projects[(currentIndex + 1) % projects.length];
 
@@ -67,16 +62,29 @@ export default async function ProyectoPage({ params }) {
         </header>
       </FadeIn>
 
-      {/* COVER / VIDEO PLACEHOLDER */}
+      {/* COVER / VIDEO — imagen real con fallback gradiente */}
       <FadeIn delay={0.2}>
         <div className={`max-w-5xl mx-auto aspect-video rounded-3xl bg-gradient-to-br ${project.coverGradient} mb-20 flex items-center justify-center relative overflow-hidden`}>
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="relative text-center px-6">
-            <p className="text-black font-bold text-lg mb-2">🎬 {project.videoLabel}</p>
-            <p className="text-black/70 text-sm">
-              Aquí insertarás tu video real del caso de estudio (YouTube/Vimeo/MP4)
-            </p>
-          </div>
+          {project.image ? (
+            <>
+              <Image
+                src={project.image}
+                alt={`Portada del caso de estudio: ${project.client}`}
+                fill
+                priority // ⬅️ carga inmediata (es el elemento más grande visible)
+                sizes="(min-width: 1024px) 1024px, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black/30" />
+            </>
+          ) : (
+            <div className="relative text-center px-6">
+              <p className="text-black font-bold text-lg mb-2">🎬 {project.videoLabel}</p>
+              <p className="text-black/70 text-sm">
+                Aquí insertarás tu video o imagen real del caso de estudio
+              </p>
+            </div>
+          )}
         </div>
       </FadeIn>
 
@@ -92,7 +100,7 @@ export default async function ProyectoPage({ params }) {
         </section>
       </FadeIn>
 
-      {/* NARRATIVA: RESUMEN / RETO / SOLUCIÓN */}
+      {/* NARRATIVA */}
       <div className="max-w-3xl mx-auto space-y-14">
         <FadeIn>
           <section>
@@ -121,7 +129,6 @@ export default async function ProyectoPage({ params }) {
           </section>
         </FadeIn>
 
-        {/* SERVICIOS USADOS */}
         <FadeIn delay={0.3}>
           <section>
             <h2 className="text-2xl font-extrabold mb-5">Servicios entregados</h2>

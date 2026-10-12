@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image'; // ⬅️ NUEVO
 import FadeIn from '@/components/FadeIn';
 import { projects } from '@/data/projects';
 
@@ -30,12 +31,22 @@ export default function ProyectosPage() {
           <FadeIn key={p.slug} delay={i * 0.12}>
             <Link href={`/proyectos/${p.slug}`} className="block group">
               <article className="bg-brand-card border border-white/10 rounded-2xl overflow-hidden h-full flex flex-col transition-all duration-300 group-hover:border-brand-cyan/50 group-hover:-translate-y-2">
-                {/* Cover con gradiente (placeholder de imagen/video) */}
-                <div className={`h-48 bg-gradient-to-br ${p.coverGradient} relative flex items-end p-5`}>
-                  <span className="absolute top-4 right-4 text-xs font-bold uppercase tracking-wide bg-black/30 backdrop-blur-sm text-white px-3 py-1 rounded-full">
+                {/* COVER con imagen + fallback gradiente */}
+                <div className={`h-48 bg-gradient-to-br ${p.coverGradient} relative flex items-end p-5 overflow-hidden`}>
+                  {p.image && (
+                    <Image
+                      src={p.image}
+                      alt={`Caso de estudio: ${p.client}`}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  )}
+                  {p.image && <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />}
+                  <span className="absolute top-4 right-4 z-10 text-xs font-bold uppercase tracking-wide bg-black/40 backdrop-blur-sm text-white px-3 py-1 rounded-full">
                     {p.category}
                   </span>
-                  <h3 className="text-xl font-extrabold text-black drop-shadow-sm">{p.client}</h3>
+                  <h3 className="relative z-10 text-xl font-extrabold text-white drop-shadow-md">{p.client}</h3>
                 </div>
 
                 <div className="p-6 flex flex-col flex-1">
