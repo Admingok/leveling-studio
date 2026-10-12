@@ -12,17 +12,17 @@ import { projects } from '@/data/projects';
 export default function Home() {
   const services = [
     {
-      icon: '💻',
+      icon: '',
       title: 'Desarrollo Web',
       description: 'Creamos páginas web rápidas, responsivas y optimizadas para convertir visitantes en clientes. Desde landing pages hasta tiendas online.'
     },
     {
-      icon: '📈',
+      icon: '',
       title: 'Marketing Estratégico',
       description: 'Diseñamos embudos de venta y estrategias de contenido que posicionan tu marca, generan autoridad y atraen leads calificados.'
     },
     {
-      icon: '🚀',
+      icon: '',
       title: 'Publicidad Digital',
       description: 'Campañas en Meta Ads, TikTok Ads y Google Ads. Invertimos tu presupuesto de forma inteligente para maximizar el retorno de inversión (ROI).'
     }
@@ -101,10 +101,10 @@ export default function Home() {
           </div>
         </FadeIn>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <ProcessStep number="01" icon="🔍" title="Descubrimiento" description="Analizamos tu negocio, tu mercado y tus objetivos para crear una estrategia a medida." delay={0} />
-          <ProcessStep number="02" icon="🎨" title="Diseño y Estrategia" description="Creamos el diseño visual y la estrategia de marketing que conectará con tu audiencia." delay={0.15} />
-          <ProcessStep number="03" icon="⚙️" title="Desarrollo" description="Construimos tu sitio web y campañas con las tecnologías más modernas del mercado." delay={0.3} />
-          <ProcessStep number="04" icon="🚀" title="Lanzamiento" description="Publicamos, medimos resultados y optimizamos continuamente para maximizar tu ROI." delay={0.45} />
+          <ProcessStep number="01" icon="" title="Descubrimiento" description="Analizamos tu negocio, tu mercado y tus objetivos para crear una estrategia a medida." delay={0} />
+          <ProcessStep number="02" icon="" title="Diseño y Estrategia" description="Creamos el diseño visual y la estrategia de marketing que conectará con tu audiencia." delay={0.15} />
+          <ProcessStep number="03" icon="" title="Desarrollo" description="Construimos tu sitio web y campañas con las tecnologías más modernas del mercado." delay={0.3} />
+          <ProcessStep number="04" icon="" title="Lanzamiento" description="Publicamos, medimos resultados y optimizamos continuamente para maximizar tu ROI." delay={0.45} />
         </div>
       </section>
 
