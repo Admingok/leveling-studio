@@ -1,5 +1,6 @@
 import PricingCard from '@/components/PricingCard';
 import FadeIn from '@/components/FadeIn';
+import FAQItem from '@/components/FAQItem';
 import Link from 'next/link';
 
 export const metadata = {
@@ -65,6 +66,33 @@ export default function PreciosPage() {
     { name: 'Full Growth', price: '15,000', detail: 'Contenido + ads + web + reportes' },
   ];
 
+  const faqs = [
+    {
+      q: '¿Qué pasa si no me gusta el diseño?',
+      a: 'Todos los paquetes incluyen rondas de revisión (2 en Emprende, 3 en Impulsa, ilimitadas razonables en Escala). Trabajamos con aprobaciones por etapa: primero propuesta visual, luego desarrollo. Si algo no te convence, lo ajustamos hasta que quede alineado con tu visión. Tu satisfacción es parte del entregable.',
+    },
+    {
+      q: '¿Cuánto tardan en entregar mi proyecto?',
+      a: 'Depende del paquete: Emprende 7 días hábiles, Impulsa 14 días hábiles y Escala entre 3 y 5 semanas. El cronograma se define en la reunión inicial y se comparte por escrito. Si necesitas algo urgente, cotizamos entrega express con recargo.',
+    },
+    {
+      q: '¿Los precios incluyen IVA?',
+      a: 'No. Todos los precios mostrados son + IVA (16%). Emitimos factura con RFC. El presupuesto de pauta publicitaria (el dinero que inviertes en Meta/Google/TikTok) también es aparte de nuestro fee de gestión, porque ese dinero va directo a la plataforma, no a nosotros.',
+    },
+    {
+      q: '¿Cómo son las formas de pago?',
+      a: 'Trabajamos con anticipo del 50% para iniciar y el 50% restante contra entrega/aprobación. En paquetes Escala y retainers manejamos pagos mensuales anticipados. Aceptamos transferencia, tarjeta y depósito. Firmamos contrato claro antes de empezar.',
+    },
+    {
+      q: '¿Qué pasa si necesito cambios después de la entrega?',
+      a: 'Incluimos 30 días de soporte gratuito para correcciones y ajustes menores tras la entrega. Para cambios grandes o nuevas funcionalidades, cotizamos aparte o puedes contratar un retainer mensual que incluye mantenimiento continuo.',
+    },
+    {
+      q: '¿Trabajan con negocios de cualquier giro?',
+      a: 'Sí. Hemos diseñado para restaurantes, clínicas, e-commerce, servicios profesionales, inmobiliarias y más. Lo que evaluamos es que tu negocio tenga un producto/servicio claro y ganas de invertir en crecer. No tomamos proyectos donde el cliente busca "algo barato y rápido" sin estrategia.',
+    },
+  ];
+
   return (
     <div className="pt-28 pb-24 px-[5%] md:px-[10%]">
       {/* HEADER DE PÁGINA */}
@@ -99,7 +127,7 @@ export default function PreciosPage() {
         ))}
       </div>
 
-      {/* NOTA DE PABTA */}
+      {/* NOTA DE PAUTA */}
       <FadeIn delay={0.4}>
         <p className="text-center text-brand-muted text-sm mt-10 max-w-2xl mx-auto">
           * Los paquetes de publicidad <strong className="text-white">no incluyen el presupuesto de pauta</strong> (el
@@ -129,6 +157,29 @@ export default function PreciosPage() {
                 </div>
               </div>
             </FadeIn>
+          ))}
+        </div>
+      </section>
+
+      {/* SECCIÓN FAQ (ACORDEÓN) */}
+      <section className="max-w-3xl mx-auto mt-24">
+        <FadeIn>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-3">
+              Preguntas <span className="gradient-text">frecuentes</span>
+            </h2>
+            <p className="text-brand-muted">Resolvemos las dudas más comunes antes de que las tengas.</p>
+          </div>
+        </FadeIn>
+
+        <div className="space-y-4">
+          {faqs.map((faq, i) => (
+            <FAQItem
+              key={i}
+              question={faq.q}
+              answer={faq.a}
+              delay={i * 0.08}
+            />
           ))}
         </div>
       </section>
