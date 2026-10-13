@@ -195,7 +195,7 @@ export default function Home() {
           </FadeIn>
           <ContactForm />
           <div className="mt-20 pt-10 border-t border-white/10 text-center">
-            <p className="text-brand-muted text-sm">© 2024 Leveling Studio. Todos los derechos reservados.</p>
+            <p className="text-brand-muted text-sm">© 2026 Leveling Studio. Todos los derechos reservados.</p>
             <div className="flex justify-center gap-6 mt-4">
               <a href="#" className="text-brand-muted hover:text-white transition">By</a>
               <a href="#" className="text-brand-muted hover:text-white transition">Ricardo</a>
