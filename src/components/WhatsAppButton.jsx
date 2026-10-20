@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export default function WhatsAppButton() {
   // Reemplaza este número con el tuyo (código de país + número, sin espacios ni +)
   // Ejemplo: 521234567890 para México
-  const phoneNumber = '5532619243';
+  const phoneNumber = '7775071282';
   const message = 'Hola Leveling Studio, me interesa conocer más sobre sus servicios.';
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
